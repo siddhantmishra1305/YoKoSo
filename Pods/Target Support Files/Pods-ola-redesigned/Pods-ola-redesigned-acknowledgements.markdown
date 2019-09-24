@@ -50,6 +50,14 @@ SOFTWARE.
 
 
 
+## GoogleMaps
+
+Copyright 2019 Google
+
+## GooglePlaces
+
+Copyright 2019 Google
+
 ## IQKeyboardManagerSwift
 
 MIT License

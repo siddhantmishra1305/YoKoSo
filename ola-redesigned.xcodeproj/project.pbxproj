@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		E27ED18A2337EDC500E099D4 /* CabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED1882337EDC500E099D4 /* CabView.swift */; };
 		E27ED18B2337EDC500E099D4 /* CabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27ED1892337EDC500E099D4 /* CabView.xib */; };
 		E27ED18D2337F3DC00E099D4 /* CabTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED18C2337F3DC00E099D4 /* CabTypes.swift */; };
+		E27ED1992339515800E099D4 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = E27ED1982339515800E099D4 /* MapStyle.json */; };
+		E27ED19B233951A700E099D4 /* GMSMapView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED19A233951A700E099D4 /* GMSMapView + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E27ED1882337EDC500E099D4 /* CabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabView.swift; sourceTree = "<group>"; };
 		E27ED1892337EDC500E099D4 /* CabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CabView.xib; sourceTree = "<group>"; };
 		E27ED18C2337F3DC00E099D4 /* CabTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabTypes.swift; sourceTree = "<group>"; };
+		E27ED1982339515800E099D4 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
+		E27ED19A233951A700E099D4 /* GMSMapView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSMapView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 		E27ED1712337DEB700E099D4 /* ola-redesigned */ = {
 			isa = PBXGroup;
 			children = (
+				E27ED1982339515800E099D4 /* MapStyle.json */,
 				E27ED1872337EB3D00E099D4 /* Controller */,
 				E27ED1862337EADC00E099D4 /* View */,
 				E27ED1852337EACE00E099D4 /* Model */,
@@ -83,6 +88,7 @@
 				E27ED1792337DEB900E099D4 /* Assets.xcassets */,
 				E27ED17B2337DEB900E099D4 /* LaunchScreen.storyboard */,
 				E27ED17E2337DEB900E099D4 /* Info.plist */,
+				E27ED19A233951A700E099D4 /* GMSMapView + Extension.swift */,
 			);
 			path = "ola-redesigned";
 			sourceTree = "<group>";
@@ -98,8 +104,7 @@
 		E27ED1862337EADC00E099D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E27ED1882337EDC500E099D4 /* CabView.swift */,
-				E27ED1892337EDC500E099D4 /* CabView.xib */,
+				E27ED18E2338D9BB00E099D4 /* CabViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,13 +117,21 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E27ED18E2338D9BB00E099D4 /* CabViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E27ED1882337EDC500E099D4 /* CabView.swift */,
+				E27ED1892337EDC500E099D4 /* CabView.xib */,
+			);
+			path = CabViewCell;
+			sourceTree = "<group>";
+		};
 		FEA8349782332708CDED5A6B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				9AB4E318D974F16F2DF3C51B /* Pods-ola-redesigned.debug.xcconfig */,
 				996231055AB14E3ABA9BE9AB /* Pods-ola-redesigned.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -134,6 +147,7 @@
 				E27ED16C2337DEB700E099D4 /* Frameworks */,
 				E27ED16D2337DEB700E099D4 /* Resources */,
 				16BABC44D2E712B614A0B840 /* [CP] Embed Pods Frameworks */,
+				2E7D638D458C66BB28724E4D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E27ED17D2337DEB900E099D4 /* LaunchScreen.storyboard in Resources */,
+				E27ED1992339515800E099D4 /* MapStyle.json in Resources */,
 				E27ED18B2337EDC500E099D4 /* CabView.xib in Resources */,
 				E27ED17A2337DEB900E099D4 /* Assets.xcassets in Resources */,
 				E27ED1782337DEB700E099D4 /* Main.storyboard in Resources */,
@@ -207,6 +222,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E7D638D458C66BB28724E4D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3600604922282BFC6FCC874 /* [CP] Check Pods Manifest.lock */ = {
@@ -238,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27ED19B233951A700E099D4 /* GMSMapView + Extension.swift in Sources */,
 				E27ED18D2337F3DC00E099D4 /* CabTypes.swift in Sources */,
 				E27ED1752337DEB700E099D4 /* BookingViewController.swift in Sources */,
 				E27ED18A2337EDC500E099D4 /* CabView.swift in Sources */,
@@ -391,6 +424,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VHF4XQWWL9;
 				INFOPLIST_FILE = "ola-redesigned/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -410,6 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VHF4XQWWL9;
 				INFOPLIST_FILE = "ola-redesigned/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

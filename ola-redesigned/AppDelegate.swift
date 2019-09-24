@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlaces
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        IQKeyboardManager.shared.enable = true
+        self.setupGoogleMaps()
         return true
+    }
+    
+    func setupGoogleMaps(){
+        let googleMapsAPIKey = "AIzaSyDBAsQ6kkBsTmMFg6S0Q17iITIrg_G-qPg"
+        GMSServices.provideAPIKey(googleMapsAPIKey)
+        GMSPlacesClient.provideAPIKey(googleMapsAPIKey)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

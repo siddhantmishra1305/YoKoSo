@@ -9,5 +9,7 @@ target 'ola-redesigned' do
   # Pods for ola-redesigned
 	pod 'AlamofireObjectMapper', '~> 5.2'
 	pod 'IQKeyboardManagerSwift'
+	pod 'GooglePlaces'
+  	pod 'GoogleMaps'
 
 end
