@@ -10,6 +10,6 @@ target 'ola-redesigned' do
 	pod 'AlamofireObjectMapper', '~> 5.2'
 	pod 'IQKeyboardManagerSwift'
 	pod 'GooglePlaces'
-  	pod 'GoogleMaps'
+  pod 'GoogleMaps'
 
 end

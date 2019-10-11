@@ -22,4 +22,5 @@ extension GMSMapView {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
     }
+
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A6386B5B25B09663E6C57C1 /* Pods_ola_redesigned.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3691320CC77F9F653A8D6C40 /* Pods_ola_redesigned.framework */; };
+		DF3C1BE8234CEFDA00C4D622 /* BookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C1BE7234CEFDA00C4D622 /* BookingViewModel.swift */; };
 		E27ED1732337DEB700E099D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED1722337DEB700E099D4 /* AppDelegate.swift */; };
 		E27ED1752337DEB700E099D4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED1742337DEB700E099D4 /* BookingViewController.swift */; };
 		E27ED1782337DEB700E099D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ED1762337DEB700E099D4 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		3691320CC77F9F653A8D6C40 /* Pods_ola_redesigned.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ola_redesigned.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		996231055AB14E3ABA9BE9AB /* Pods-ola-redesigned.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ola-redesigned.release.xcconfig"; path = "Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned.release.xcconfig"; sourceTree = "<group>"; };
 		9AB4E318D974F16F2DF3C51B /* Pods-ola-redesigned.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ola-redesigned.debug.xcconfig"; path = "Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned.debug.xcconfig"; sourceTree = "<group>"; };
+		DF3C1BE7234CEFDA00C4D622 /* BookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewModel.swift; sourceTree = "<group>"; };
 		E27ED16F2337DEB700E099D4 /* ola-redesigned.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ola-redesigned.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27ED1722337DEB700E099D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E27ED1742337DEB700E099D4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF3C1BE6234CECBB00C4D622 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DF3C1BE7234CEFDA00C4D622 /* BookingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E23D4B08233CB56700698D18 /* Other files */ = {
+			isa = PBXGroup;
+			children = (
+				E27ED1792337DEB900E099D4 /* Assets.xcassets */,
+				E27ED17B2337DEB900E099D4 /* LaunchScreen.storyboard */,
+				E27ED17E2337DEB900E099D4 /* Info.plist */,
+			);
+			name = "Other files";
+			sourceTree = "<group>";
+		};
+		E23D4B09233CB73100698D18 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E27ED1722337DEB700E099D4 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		E23D4B0A233CB74E00698D18 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E27ED1762337DEB700E099D4 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E23D4B0B233CB76200698D18 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E27ED19A233951A700E099D4 /* GMSMapView + Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E27ED1662337DEB700E099D4 = {
 			isa = PBXGroup;
 			children = (
@@ -80,15 +124,14 @@
 			isa = PBXGroup;
 			children = (
 				E27ED1982339515800E099D4 /* MapStyle.json */,
+				E23D4B0B233CB76200698D18 /* Extensions */,
+				E23D4B09233CB73100698D18 /* AppDelegate */,
+				E23D4B0A233CB74E00698D18 /* Storyboard */,
+				DF3C1BE6234CECBB00C4D622 /* ViewModel */,
 				E27ED1872337EB3D00E099D4 /* Controller */,
 				E27ED1862337EADC00E099D4 /* View */,
 				E27ED1852337EACE00E099D4 /* Model */,
-				E27ED1722337DEB700E099D4 /* AppDelegate.swift */,
-				E27ED1762337DEB700E099D4 /* Main.storyboard */,
-				E27ED1792337DEB900E099D4 /* Assets.xcassets */,
-				E27ED17B2337DEB900E099D4 /* LaunchScreen.storyboard */,
-				E27ED17E2337DEB900E099D4 /* Info.plist */,
-				E27ED19A233951A700E099D4 /* GMSMapView + Extension.swift */,
+				E23D4B08233CB56700698D18 /* Other files */,
 			);
 			path = "ola-redesigned";
 			sourceTree = "<group>";
@@ -275,6 +318,7 @@
 				E27ED1752337DEB700E099D4 /* BookingViewController.swift in Sources */,
 				E27ED18A2337EDC500E099D4 /* CabView.swift in Sources */,
 				E27ED1732337DEB700E099D4 /* AppDelegate.swift in Sources */,
+				DF3C1BE8234CEFDA00C4D622 /* BookingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VHF4XQWWL9;
+				DEVELOPMENT_TEAM = 7NBZATWLZC;
 				INFOPLIST_FILE = "ola-redesigned/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -442,7 +486,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VHF4XQWWL9;
+				DEVELOPMENT_TEAM = 7NBZATWLZC;
 				INFOPLIST_FILE = "ola-redesigned/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
