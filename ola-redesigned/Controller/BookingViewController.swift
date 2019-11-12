@@ -24,6 +24,9 @@ class BookingViewController: UIViewController {
     
     var cabTypes = [Cab]()
     var currentLocation = CLLocationCoordinate2D()
+    var destination : GMSPlace?
+    var source : String?
+    var polyStringPath : String?
     var locationManager = CLLocationManager()
     let bookingViewModel = BookingViewModel()
     
@@ -36,6 +39,7 @@ class BookingViewController: UIViewController {
         rideLaterBtn.layer.borderColor = #colorLiteral(red: 0.262745098, green: 0.2588235294, blue: 0.3294117647, alpha: 1)
         rideLaterBtn.layer.borderWidth = 1.0
         cabSelectionView.allowsMultipleSelection = false
+        self.setupNavigationBar()
     }
 
     
@@ -52,6 +56,33 @@ class BookingViewController: UIViewController {
     
     
     @IBAction func rideNowAction(_ sender: Any) {
+        
+        let rideViewModel = CabDetailViewModel()
+        if let dest = destination?.coordinate{
+            self.showSpinner(title: "Searching for cabs")
+            rideViewModel.getNearbyCab(source: "\(currentLocation.latitude)|\(currentLocation.longitude)", destination: "\(dest.latitude)|\(dest.longitude)") { (status, cabDetail) in
+                if status!{
+                    let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RideDetailsViewController") as? RideDetailsViewController
+                    vc?.cabDetail = cabDetail
+                    vc?.polyString = self.polyStringPath
+                    if let destName = self.destination?.name {
+                        vc?.cabDetail?.destination = destName
+                    }
+                    if let originName = self.source{
+                        vc?.cabDetail?.source = originName
+                    }
+                    self.removeSpinner()
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }else{
+                    
+                }
+            }
+        }else{
+            self.showAlert(Title: "Alert", Message: "Please select a valid Destination")
+            //Invalid destination
+        }
+       
+
     }
     
     
@@ -69,20 +100,17 @@ extension BookingViewController : GMSAutocompleteViewControllerDelegate {
         self.destinationBtn.setTitle(place.name, for: .normal)
 //        let loc = CLLocationCoordinate2D(latitude: 13.1986, longitude: 77.7066)
         mapView.clear()
+        
+        destination = place
+        
         bookingViewModel.drawPath(src: currentLocation, dst: place.coordinate) { (isSuccess, polyString) in
-            DispatchQueue.main.async(execute: {
-                if let mapString = polyString{
-                    let path = GMSPath(fromEncodedPath: mapString)
-                    let polyline = GMSPolyline(path: path)
-                    polyline.strokeWidth = 2.0
-                    polyline.strokeColor = UIColor.black
-                    polyline.map = self.mapView
-                }
-            })
+            self.bookingViewModel.drawPolylineAndAdjustCamera(mapView: self.mapView, polyString: polyString)
+            self.polyStringPath = polyString
         }
-        let marker = bookingViewModel.setupMarker(location: place.coordinate, title: place.name!)
-        marker.map = mapView
-        mapView.selectedMarker = marker
+        
+        let destinationMarker = bookingViewModel.setupMarker(location: place.coordinate, title: place.name!, type: "Defaults")
+        destinationMarker.map = mapView
+        mapView.selectedMarker = destinationMarker
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -105,14 +133,18 @@ extension BookingViewController: CLLocationManagerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 15.0)
         
         self.mapView?.animate(to: camera)
-        
+        location?.fetchCityAndCountry(completion: { (name, locality, error) in
+            if let placeName = name{
+                self.source = placeName
+            }
+        })
         self.locationManager.stopUpdatingLocation()
         
     }
 }
 
 
-extension BookingViewController : UICollectionViewDataSource{
+extension BookingViewController : UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cabTypes.count
     }
@@ -133,11 +165,7 @@ extension BookingViewController : UICollectionViewDataSource{
         
         return cell
     }
-}
-
-
-extension BookingViewController : UICollectionViewDelegate{
-   
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = cabSelectionView.cellForItem(at: indexPath) as? CabView
         if let collectionCell =  cell{
@@ -147,5 +175,11 @@ extension BookingViewController : UICollectionViewDelegate{
         }
         self.selectedIndexPath = indexPath
         cabSelectionView.reloadData()
+    }
+}
+
+extension CLLocation {
+    func fetchCityAndCountry(completion: @escaping (_ name: String?, _ locality:  String?, _ error: Error?) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first?.name, $0?.first?.subLocality, $1) }
     }
 }

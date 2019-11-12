@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		6A6386B5B25B09663E6C57C1 /* Pods_ola_redesigned.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3691320CC77F9F653A8D6C40 /* Pods_ola_redesigned.framework */; };
 		DF3C1BE8234CEFDA00C4D622 /* BookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C1BE7234CEFDA00C4D622 /* BookingViewModel.swift */; };
+		E235791C2376A3C3001EB91E /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235791B2376A3C3001EB91E /* RideDetailsViewController.swift */; };
+		E235792023770F38001EB91E /* CabDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235791E23770F38001EB91E /* CabDetailCell.swift */; };
+		E235792123770F38001EB91E /* CabDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E235791F23770F38001EB91E /* CabDetailCell.xib */; };
+		E235792723771235001EB91E /* DriverDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235792523771235001EB91E /* DriverDetailCell.swift */; };
+		E235792823771235001EB91E /* DriverDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E235792623771235001EB91E /* DriverDetailCell.xib */; };
+		E235792B2377124E001EB91E /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23579292377124E001EB91E /* TripCell.swift */; };
+		E235792C2377124E001EB91E /* TripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E235792A2377124E001EB91E /* TripCell.xib */; };
+		E235792E2377411A001EB91E /* CabDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235792D2377411A001EB91E /* CabDetail.swift */; };
 		E27ED1732337DEB700E099D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED1722337DEB700E099D4 /* AppDelegate.swift */; };
 		E27ED1752337DEB700E099D4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED1742337DEB700E099D4 /* BookingViewController.swift */; };
 		E27ED1782337DEB700E099D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ED1762337DEB700E099D4 /* Main.storyboard */; };
@@ -19,6 +27,10 @@
 		E27ED18D2337F3DC00E099D4 /* CabTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED18C2337F3DC00E099D4 /* CabTypes.swift */; };
 		E27ED1992339515800E099D4 /* MapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = E27ED1982339515800E099D4 /* MapStyle.json */; };
 		E27ED19B233951A700E099D4 /* GMSMapView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27ED19A233951A700E099D4 /* GMSMapView + Extension.swift */; };
+		E2A59F792377E774004FDF90 /* ServerManagerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A59F782377E774004FDF90 /* ServerManagerRequestHandler.swift */; };
+		E2A59F7C2377F8DF004FDF90 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A59F7B2377F8DF004FDF90 /* ServerManager.swift */; };
+		E2A59F7E2377FB90004FDF90 /* CabDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A59F7D2377FB90004FDF90 /* CabDetailViewModel.swift */; };
+		E2E4D50D237B102100701E6D /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E4D50C237B102100701E6D /* UIViewController + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +38,15 @@
 		996231055AB14E3ABA9BE9AB /* Pods-ola-redesigned.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ola-redesigned.release.xcconfig"; path = "Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned.release.xcconfig"; sourceTree = "<group>"; };
 		9AB4E318D974F16F2DF3C51B /* Pods-ola-redesigned.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ola-redesigned.debug.xcconfig"; path = "Target Support Files/Pods-ola-redesigned/Pods-ola-redesigned.debug.xcconfig"; sourceTree = "<group>"; };
 		DF3C1BE7234CEFDA00C4D622 /* BookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewModel.swift; sourceTree = "<group>"; };
-		E27ED16F2337DEB700E099D4 /* ola-redesigned.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ola-redesigned.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E235791B2376A3C3001EB91E /* RideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
+		E235791E23770F38001EB91E /* CabDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabDetailCell.swift; sourceTree = "<group>"; };
+		E235791F23770F38001EB91E /* CabDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CabDetailCell.xib; sourceTree = "<group>"; };
+		E235792523771235001EB91E /* DriverDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailCell.swift; sourceTree = "<group>"; };
+		E235792623771235001EB91E /* DriverDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverDetailCell.xib; sourceTree = "<group>"; };
+		E23579292377124E001EB91E /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
+		E235792A2377124E001EB91E /* TripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripCell.xib; sourceTree = "<group>"; };
+		E235792D2377411A001EB91E /* CabDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabDetail.swift; sourceTree = "<group>"; };
+		E27ED16F2337DEB700E099D4 /* YoKoSo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoKoSo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27ED1722337DEB700E099D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E27ED1742337DEB700E099D4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		E27ED1772337DEB700E099D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +58,10 @@
 		E27ED18C2337F3DC00E099D4 /* CabTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabTypes.swift; sourceTree = "<group>"; };
 		E27ED1982339515800E099D4 /* MapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MapStyle.json; sourceTree = "<group>"; };
 		E27ED19A233951A700E099D4 /* GMSMapView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GMSMapView + Extension.swift"; sourceTree = "<group>"; };
+		E2A59F782377E774004FDF90 /* ServerManagerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManagerRequestHandler.swift; sourceTree = "<group>"; };
+		E2A59F7B2377F8DF004FDF90 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		E2A59F7D2377FB90004FDF90 /* CabDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabDetailViewModel.swift; sourceTree = "<group>"; };
+		E2E4D50C237B102100701E6D /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +88,46 @@
 			isa = PBXGroup;
 			children = (
 				DF3C1BE7234CEFDA00C4D622 /* BookingViewModel.swift */,
+				E2A59F7D2377FB90004FDF90 /* CabDetailViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E235791D23770F0A001EB91E /* TripDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E235792423771116001EB91E /* DriverDetailsCell */,
+				E235792323771108001EB91E /* TripCell */,
+				E235792223770F42001EB91E /* CabDetailsCell */,
+			);
+			path = TripDetails;
+			sourceTree = "<group>";
+		};
+		E235792223770F42001EB91E /* CabDetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				E235791E23770F38001EB91E /* CabDetailCell.swift */,
+				E235791F23770F38001EB91E /* CabDetailCell.xib */,
+			);
+			path = CabDetailsCell;
+			sourceTree = "<group>";
+		};
+		E235792323771108001EB91E /* TripCell */ = {
+			isa = PBXGroup;
+			children = (
+				E23579292377124E001EB91E /* TripCell.swift */,
+				E235792A2377124E001EB91E /* TripCell.xib */,
+			);
+			path = TripCell;
+			sourceTree = "<group>";
+		};
+		E235792423771116001EB91E /* DriverDetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				E235792523771235001EB91E /* DriverDetailCell.swift */,
+				E235792623771235001EB91E /* DriverDetailCell.xib */,
+			);
+			path = DriverDetailsCell;
 			sourceTree = "<group>";
 		};
 		E23D4B08233CB56700698D18 /* Other files */ = {
@@ -74,6 +136,7 @@
 				E27ED1792337DEB900E099D4 /* Assets.xcassets */,
 				E27ED17B2337DEB900E099D4 /* LaunchScreen.storyboard */,
 				E27ED17E2337DEB900E099D4 /* Info.plist */,
+				E2E4D50C237B102100701E6D /* UIViewController + Extensions.swift */,
 			);
 			name = "Other files";
 			sourceTree = "<group>";
@@ -115,7 +178,7 @@
 		E27ED1702337DEB700E099D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E27ED16F2337DEB700E099D4 /* ola-redesigned.app */,
+				E27ED16F2337DEB700E099D4 /* YoKoSo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,7 +202,9 @@
 		E27ED1852337EACE00E099D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2A59F7A2377F8C9004FDF90 /* ServerManager */,
 				E27ED18C2337F3DC00E099D4 /* CabTypes.swift */,
+				E235792D2377411A001EB91E /* CabDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +212,7 @@
 		E27ED1862337EADC00E099D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E235791D23770F0A001EB91E /* TripDetails */,
 				E27ED18E2338D9BB00E099D4 /* CabViewCell */,
 			);
 			path = View;
@@ -156,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				E27ED1742337DEB700E099D4 /* BookingViewController.swift */,
+				E235791B2376A3C3001EB91E /* RideDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,6 +234,15 @@
 				E27ED1892337EDC500E099D4 /* CabView.xib */,
 			);
 			path = CabViewCell;
+			sourceTree = "<group>";
+		};
+		E2A59F7A2377F8C9004FDF90 /* ServerManager */ = {
+			isa = PBXGroup;
+			children = (
+				E2A59F782377E774004FDF90 /* ServerManagerRequestHandler.swift */,
+				E2A59F7B2377F8DF004FDF90 /* ServerManager.swift */,
+			);
+			path = ServerManager;
 			sourceTree = "<group>";
 		};
 		FEA8349782332708CDED5A6B /* Pods */ = {
@@ -198,7 +274,7 @@
 			);
 			name = "ola-redesigned";
 			productName = "ola-redesigned";
-			productReference = E27ED16F2337DEB700E099D4 /* ola-redesigned.app */;
+			productReference = E27ED16F2337DEB700E099D4 /* YoKoSo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -242,6 +318,9 @@
 				E27ED17D2337DEB900E099D4 /* LaunchScreen.storyboard in Resources */,
 				E27ED1992339515800E099D4 /* MapStyle.json in Resources */,
 				E27ED18B2337EDC500E099D4 /* CabView.xib in Resources */,
+				E235792123770F38001EB91E /* CabDetailCell.xib in Resources */,
+				E235792C2377124E001EB91E /* TripCell.xib in Resources */,
+				E235792823771235001EB91E /* DriverDetailCell.xib in Resources */,
 				E27ED17A2337DEB900E099D4 /* Assets.xcassets in Resources */,
 				E27ED1782337DEB700E099D4 /* Main.storyboard in Resources */,
 			);
@@ -314,11 +393,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E27ED19B233951A700E099D4 /* GMSMapView + Extension.swift in Sources */,
+				E235792723771235001EB91E /* DriverDetailCell.swift in Sources */,
+				E2A59F7E2377FB90004FDF90 /* CabDetailViewModel.swift in Sources */,
 				E27ED18D2337F3DC00E099D4 /* CabTypes.swift in Sources */,
+				E235791C2376A3C3001EB91E /* RideDetailsViewController.swift in Sources */,
+				E235792B2377124E001EB91E /* TripCell.swift in Sources */,
+				E235792E2377411A001EB91E /* CabDetail.swift in Sources */,
 				E27ED1752337DEB700E099D4 /* BookingViewController.swift in Sources */,
 				E27ED18A2337EDC500E099D4 /* CabView.swift in Sources */,
 				E27ED1732337DEB700E099D4 /* AppDelegate.swift in Sources */,
+				E2E4D50D237B102100701E6D /* UIViewController + Extensions.swift in Sources */,
 				DF3C1BE8234CEFDA00C4D622 /* BookingViewModel.swift in Sources */,
+				E2A59F7C2377F8DF004FDF90 /* ServerManager.swift in Sources */,
+				E235792023770F38001EB91E /* CabDetailCell.swift in Sources */,
+				E2A59F792377E774004FDF90 /* ServerManagerRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,17 +554,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7NBZATWLZC;
+				DEVELOPMENT_TEAM = VHF4XQWWL9;
 				INFOPLIST_FILE = "ola-redesigned/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sid.ola-redesigned";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.yokoso;
+				PRODUCT_NAME = YoKoSo;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -486,17 +574,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7NBZATWLZC;
+				DEVELOPMENT_TEAM = VHF4XQWWL9;
 				INFOPLIST_FILE = "ola-redesigned/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sid.ola-redesigned";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.yokoso;
+				PRODUCT_NAME = YoKoSo;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

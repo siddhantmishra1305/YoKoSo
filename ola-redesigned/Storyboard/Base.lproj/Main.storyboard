@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wJn-My-p9l">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Booking View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BookingViewController" customModule="ola_redesigned" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BookingViewController" id="BYZ-38-t0r" customClass="BookingViewController" customModule="YoKoSo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGg-1h-YAY" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1w-Qw-SBK">
                                 <rect key="frame" x="0.0" y="588" width="414" height="308"/>
@@ -104,7 +111,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="tDj-QY-Vq8"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                         <state key="normal" title="RIDE NOW">
                                             <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -156,17 +163,104 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ans-e9-leb"/>
                     <connections>
                         <outlet property="cabSelectionView" destination="ppd-0X-KT2" id="O0t-AI-PqP"/>
                         <outlet property="destinationBtn" destination="3gg-Uo-oIJ" id="WHf-BJ-Ehu"/>
                         <outlet property="mapView" destination="KGg-1h-YAY" id="xHR-sR-yIE"/>
                         <outlet property="rideLaterBtn" destination="U1F-D6-Tj3" id="b1b-Y7-5nR"/>
                         <outlet property="rideNowBtn" destination="gPr-ad-9nL" id="RQv-Tv-dJi"/>
+                        <segue destination="yDd-4V-GwV" kind="show" identifier="showCabDetail" id="Fg4-sR-eHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63.768115942028992" y="115.84821428571428"/>
+            <point key="canvasLocation" x="510.14492753623193" y="20.758928571428569"/>
+        </scene>
+        <!--Trip Details-->
+        <scene sceneID="bG7-ky-rza">
+            <objects>
+                <viewController storyboardIdentifier="RideDetailsViewController" id="yDd-4V-GwV" customClass="RideDetailsViewController" customModule="YoKoSo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ORF-ZY-Y1t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eQQ-xZ-ShT">
+                                <rect key="frame" x="15" y="100" width="384" height="698"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yDd-4V-GwV" id="Dp8-qU-JXm"/>
+                                    <outlet property="delegate" destination="yDd-4V-GwV" id="ctZ-4U-txR"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFH-pl-ze6">
+                                <rect key="frame" x="15" y="818" width="384" height="46"/>
+                                <color key="backgroundColor" name="RideLateBtn"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="cFd-aN-aVU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="CANCEL RIDE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelBtnAction:" destination="yDd-4V-GwV" eventType="touchUpInside" id="Zfz-vr-VJV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jFH-pl-ze6" firstAttribute="leading" secondItem="geH-4D-eDs" secondAttribute="leading" constant="15" id="74B-Te-Od4"/>
+                            <constraint firstItem="eQQ-xZ-ShT" firstAttribute="leading" secondItem="geH-4D-eDs" secondAttribute="leading" constant="15" id="8q6-CJ-4DP"/>
+                            <constraint firstItem="eQQ-xZ-ShT" firstAttribute="trailing" secondItem="geH-4D-eDs" secondAttribute="trailing" constant="-15" id="Ph2-0i-bbO"/>
+                            <constraint firstItem="eQQ-xZ-ShT" firstAttribute="top" secondItem="geH-4D-eDs" secondAttribute="top" constant="12" id="pVX-ln-rZK"/>
+                            <constraint firstAttribute="bottom" secondItem="jFH-pl-ze6" secondAttribute="bottom" constant="32" id="q6d-HX-xOz"/>
+                            <constraint firstItem="jFH-pl-ze6" firstAttribute="top" secondItem="eQQ-xZ-ShT" secondAttribute="bottom" constant="20" id="qT0-6B-nLp"/>
+                            <constraint firstItem="geH-4D-eDs" firstAttribute="trailing" secondItem="jFH-pl-ze6" secondAttribute="trailing" constant="15" id="xX5-of-Qoq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="geH-4D-eDs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Trip Details" id="5Jp-ag-AM7"/>
+                    <connections>
+                        <outlet property="cancelBtn" destination="jFH-pl-ze6" id="gsP-dZ-28v"/>
+                        <outlet property="tripTableView" destination="eQQ-xZ-ShT" id="0G0-re-eAO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUd-2S-tlC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1608.6956521739132" y="20.758928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xOD-CJ-FDG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wJn-My-p9l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hv6-6f-KhJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Tan-iU-6u0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kLQ-d0-q6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-400.00000000000006" y="20.758928571428569"/>
         </scene>
     </scenes>
     <resources>

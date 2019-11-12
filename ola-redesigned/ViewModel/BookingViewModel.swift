@@ -16,36 +16,13 @@ class BookingViewModel{
     typealias routeCallback = (Bool?, String?) -> Void
 
     func drawPath(src: CLLocationCoordinate2D, dst: CLLocationCoordinate2D ,completion:@escaping routeCallback) {
-        
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(src.latitude),\(src.longitude)&destination=\(dst.latitude),\(dst.longitude)&sensor=false&key=AIzaSyDBAsQ6kkBsTmMFg6S0Q17iITIrg_G-qPg")!
-        
-        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
-           
-            if error != nil {
-                print(error!.localizedDescription)
-            } else {
-                do {
-                    if let json : [String:Any] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
-                        let preRoutes = json["routes"] as! NSArray
-                        if preRoutes.count > 0 {
-                            let routes = preRoutes[0] as! NSDictionary
-                            let routeOverviewPolyline:NSDictionary = routes.value(forKey: "overview_polyline") as! NSDictionary
-                            let polyString = routeOverviewPolyline.object(forKey: "points") as! String
-                                completion(true,polyString)
-                        } else {
-                                completion(false,nil)
-                        }
-                    }
-                    
-                } catch {
-                    print("Parsing error")
-                }
+        ServerManager.sharedInstance.getPath(origin: "\(src.latitude),\(src.longitude)", destination: "\(dst.latitude),\(dst.longitude)", sensor: false) { (response, error) in
+            if error != nil{
+                completion(false,error?.details.message)
+            }else{
+                completion(true,response)
             }
-        })
-        task.resume()
+        }
     }
     
     
@@ -54,12 +31,12 @@ class BookingViewModel{
             var cabs = [Cab]()
         
             cabMicro?.cabType = "Micro"
-            cabMicro?.cabImage = #imageLiteral(resourceName: "Micro1")
+            cabMicro?.cabImage = #imageLiteral(resourceName: "Mini1")
             cabMicro?.waitTime = "2 mins"
             
             var cabMini = Cab()
             cabMini?.cabType = "Mini"
-            cabMini?.cabImage = #imageLiteral(resourceName: "Mini1")
+            cabMini?.cabImage = #imageLiteral(resourceName: "Micro1")
             cabMini?.waitTime = "10 mins"
             
             var cabPrime = Cab()
@@ -69,7 +46,7 @@ class BookingViewModel{
             
             var cabLuxury = Cab()
             cabLuxury?.cabType = "Luxury"
-            cabLuxury?.cabImage = #imageLiteral(resourceName: "Luxury1")
+            cabLuxury?.cabImage = #imageLiteral(resourceName: "Luxury")
             cabLuxury?.waitTime = "25 mins"
             
             var auto = Cab()
@@ -86,11 +63,18 @@ class BookingViewModel{
             return cabs
         }
     
-    func setupMarker(location:CLLocationCoordinate2D,title:String) -> GMSMarker{
+    func setupMarker(location:CLLocationCoordinate2D,title:String,type:String) -> GMSMarker{
            let marker = GMSMarker()
+            var img = UIImage()
+            if type == "Source"{
+                img = UIImage(named: "SourceMarker")!.withRenderingMode(.alwaysTemplate)
+            }else if type == "Destination"{
+                img = UIImage(named: "DestinationMarker")!.withRenderingMode(.alwaysTemplate)
+            } else{
+                img = UIImage(named: "DefaultMarker")!.withRenderingMode(.alwaysTemplate)
+        }
            
-           let img = UIImage(named: "MapMarker")!.withRenderingMode(.alwaysTemplate)
-           let markerImage = self.imageWithImage(image: img, scaledToSize: CGSize(width: 30.0, height: 30.0))
+           let markerImage = self.imageWithImage(image: img, scaledToSize: CGSize(width: 25.0, height: 25.0))
            
            //creating a marker view
            let markerView = UIImageView(image: markerImage)
@@ -102,6 +86,23 @@ class BookingViewModel{
            marker.iconView = markerView
            return marker
        }
+    
+    func drawPolylineAndAdjustCamera(mapView:GMSMapView?,polyString:String?){
+        DispatchQueue.main.async(execute: {
+            if let mapString = polyString{
+                let path = GMSPath(fromEncodedPath: mapString)
+                let polyline = GMSPolyline(path: path)
+                polyline.strokeWidth = 2.0
+                polyline.strokeColor = UIColor.black
+                polyline.map = mapView
+                    if mapView != nil
+                    {
+                        let bounds = GMSCoordinateBounds(path: path!)
+                        mapView!.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 50.0))
+                    }
+              }
+        })
+    }
        
        func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
            UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
